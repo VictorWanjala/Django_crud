@@ -11,8 +11,8 @@ def add(request):
 def addrec(request):
     x=request.POST['first']
     y=request.POST['last']
-    z=request.POST['country']
-    mem=Member(firstname=x,lastname=y,country=z)
+    z=request.POST['email']
+    mem=Member(firstname=x,lastname=y,email=z)
     mem.save()
     return redirect("/")
 
@@ -28,10 +28,10 @@ def update(request,id):
 def uprec(request,id):
     x=request.POST['first']
     y=request.POST['last']
-    z=request.POST['country']
+    z=request.POST['email']
     mem=Member.objects.get(id=id)
     mem.firstname=x
     mem.lastname=y
-    mem.country=z
+    mem.email=z
     mem.save()
     return redirect("/")
